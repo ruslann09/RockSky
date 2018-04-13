@@ -13,6 +13,13 @@ TagManager:
   - InvisibleWall
   - Fader
   - EnemyTarget
+  - SpaceScene_Galaxy
+  - SpaceScene_Nebula
+  - SpaceScene_LocalStar
+  - SpaceScene_Camera
+  - SpaceScene_Planet
+  - SpaceScene_PlanetRings
+  - PlayerMoving
   layers:
   - Default
   - TransparentFX
@@ -22,7 +29,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Nebulas
   - 
   - 
   - 

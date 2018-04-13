@@ -43,17 +43,28 @@ public class Player : MonoBehaviour {
 				MakeWalkingTargetShot (rayHit.collider.gameObject, rayHit);
 			else if (rayHit.collider.gameObject.CompareTag ("collectionitem")) {
 				StartCoroutine (CollectionTargetFinding (rayHit));
-			}
-			else if (rayHit.collider.gameObject.CompareTag ("VR_UI")) {
+			} else if (rayHit.collider.gameObject.CompareTag ("VR_UI")) {
 				imgProgressBar = rayHit.collider.gameObject.GetComponent<ImageProgressBar> ();
 				imgProgressBar.GazeOver = true;	
 				imgProgressBar.StartFillingProgressBar ();
+
+				//GameObject.FindGameObjectWithTag ("Fader").GetComponent<VRCameraFade> ().FadeIn (3, false);
+
+				return;
+			} else if (rayHit.collider.gameObject.CompareTag ("PlayerMoving")) {
+				imgProgressBar = rayHit.collider.gameObject.GetComponent<ImageProgressBar> ();
+				imgProgressBar.GazeOver = true;
+				imgProgressBar.StartFillingProgressBar ();
+				rayHit.collider.gameObject.GetComponent<PlayerMoving> ().isStart = true;
 
 				return;
 			} else if (imgProgressBar != null) {
 				imgProgressBar.GazeOver = false;
 				imgProgressBar.StopFillingProgressBar ();
 				imgProgressBar = null;
+
+				if (GameObject.FindGameObjectWithTag ("PlayerMoving") != null)
+					GameObject.FindGameObjectWithTag ("PlayerMoving").GetComponent<PlayerMoving> ().isStart = false;
 
 				return;
 			} else if (rayHit.collider.gameObject.CompareTag ("Floor")) {

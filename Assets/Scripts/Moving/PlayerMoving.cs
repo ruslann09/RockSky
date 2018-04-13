@@ -6,73 +6,33 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerMoving : MonoBehaviour {
-	public GameObject interactiveObject, visibleStatement;
-	public UnityEvent onBarFilled;
-	public float timeToFill = 1.0f;
-	private Image progressBarImage = null;
-	public Coroutine barFillCoroutine = null;
+	public Transform objectiveCenter;
+	public float speed = 0.1f, maxHeigh = 500, timeToWait = 0.5f;
+	private float curTime;
+	public bool isStart;
 
-	private bool fillingProcessIsRunning = false, gazeOver = false;
+	private void Update () {
+		curTime += Time.deltaTime;
 
-	public bool GazeOver {
-		get {return gazeOver;}
-		set {gazeOver = value;}
-	}
+		if (curTime >= timeToWait) {
+			timeToWait = 0f;
+			if (isStart && curTime >= speed && objectiveCenter != null && objectiveCenter.localScale.y < maxHeigh) {
+				curTime = 0f;
 
-	void Start ()
-	{
-		progressBarImage = GetComponent<Image>();
+				objectiveCenter.gameObject.SetActive (true);
 
-		if(progressBarImage == null)
-		{
-			Debug.LogError("Non a static argument for visibleStatement! Refresh prefabs!");
+				objectiveCenter.localScale = new Vector3 (objectiveCenter.localScale.x, objectiveCenter.localScale.y + speed*500, 
+					objectiveCenter.localScale.z);
+			} else if (!isStart && curTime >= speed && objectiveCenter != null && objectiveCenter.localScale.y > 0) {
+				objectiveCenter.localScale = new Vector3 (objectiveCenter.localScale.x, 0f, 
+					objectiveCenter.localScale.z);
+				objectiveCenter.gameObject.SetActive (false);
+
+				//curTime = 0f;
+
+				//objectiveCenter.localScale = new Vector3 (objectiveCenter.localScale.x, objectiveCenter.localScale.y - speed*200, 
+					//objectiveCenter.localScale.z);
+			}
 		}
 	}
-
-	public void StartFillingProgressBar()
-	{
-		if (gazeOver && !fillingProcessIsRunning) {
-			barFillCoroutine = StartCoroutine ("Fill");
-			fillingProcessIsRunning = !fillingProcessIsRunning;	
-		}
-	}
-
-	public void StopFillingProgressBar()
-	{
-		if (!gazeOver && fillingProcessIsRunning) {
-			StopCoroutine (barFillCoroutine);
-			progressBarImage.fillAmount = 0.0f;
-			fillingProcessIsRunning = !fillingProcessIsRunning;
-		}
-	}
-
-	IEnumerator Fill() {
-		float startTime = Time.time;
-		float overTime = startTime + timeToFill;
-		visibleStatement.transform.localScale = new Vector3 (visibleStatement.transform.localScale.x, 
-			0.01f, 
-										visibleStatement.transform.localScale.z);
-
-		while(Time.time < overTime)
-		{
-			progressBarImage.fillAmount = Mathf.Lerp(0, 1, (Time.time - startTime) / timeToFill);
-
-			visibleStatement.transform.localScale = new Vector3 (visibleStatement.transform.localScale.x, 
-				visibleStatement.transform.localScale.y + 0.1f, 
-				visibleStatement.transform.localScale.z);
-
-			yield return null;
-		}
-
-		progressBarImage.fillAmount = 0.0f;
-
-		if(onBarFilled != null)
-		{
-			onBarFilled.Invoke();
-		}
-	}
-
-//	IEnumerator ExitFromFill () {
-		
-//	}
 }

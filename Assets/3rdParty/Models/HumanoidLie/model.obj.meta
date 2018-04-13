@@ -261,6 +261,8 @@ ModelImporter:
     100506: mesh979173081
     100508: mesh997443000
     100510: //RootNode
+    100512: mesh211162332_MeshPart3
+    100514: mesh934772483_MeshPart3
     400000: mesh1005109420
     400002: mesh1011454421
     400004: mesh1013086019
@@ -517,6 +519,8 @@ ModelImporter:
     400506: mesh979173081
     400508: mesh997443000
     400510: //RootNode
+    400512: mesh211162332_MeshPart3
+    400514: mesh934772483_MeshPart3
     2300000: mesh1005109420
     2300002: mesh1011454421
     2300004: mesh1013086019
@@ -770,6 +774,8 @@ ModelImporter:
     2300500: mesh978907838
     2300502: mesh979173081
     2300504: mesh997443000
+    2300506: mesh211162332_MeshPart3
+    2300508: mesh934772483_MeshPart3
     3300000: mesh1005109420
     3300002: mesh1011454421
     3300004: mesh1013086019
@@ -1023,6 +1029,8 @@ ModelImporter:
     3300500: mesh978907838
     3300502: mesh979173081
     3300504: mesh997443000
+    3300506: mesh211162332_MeshPart3
+    3300508: mesh934772483_MeshPart3
     4300000: mesh1005109420
     4300002: mesh1011454421
     4300004: mesh1013086019
@@ -1276,6 +1284,8 @@ ModelImporter:
     4300500: mesh978907838
     4300502: mesh979173081
     4300504: mesh997443000
+    4300506: mesh211162332_MeshPart3
+    4300508: mesh934772483_MeshPart3
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -1389,7 +1399,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
