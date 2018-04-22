@@ -44,6 +44,7 @@ public class Player : MonoBehaviour {
 			else if (rayHit.collider.gameObject.CompareTag ("collectionitem")) {
 				StartCoroutine (CollectionTargetFinding (rayHit));
 			} else if (rayHit.collider.gameObject.CompareTag ("VR_UI")) {
+				Time.timeScale = 1;
 				imgProgressBar = rayHit.collider.gameObject.GetComponent<ImageProgressBar> ();
 				imgProgressBar.GazeOver = true;	
 				imgProgressBar.StartFillingProgressBar ();

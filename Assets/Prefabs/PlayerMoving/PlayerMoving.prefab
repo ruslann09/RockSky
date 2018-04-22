@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectiveCenter: {fileID: 4456995285100596}
-  speed: 0.1
+  speed: 0.05
   maxHeigh: 500
   timeToWait: 0.5
   isStart: 0
@@ -392,7 +392,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391637573380108}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -13.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.001, y: 0.0010000014, z: 0.0010000014}
   m_Children:
   - {fileID: 224358142430996644}

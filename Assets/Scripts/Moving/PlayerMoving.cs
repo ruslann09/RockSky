@@ -8,8 +8,12 @@ using UnityEngine.UI;
 public class PlayerMoving : MonoBehaviour {
 	public Transform objectiveCenter;
 	public float speed = 0.1f, maxHeigh = 500, timeToWait = 0.5f;
-	private float curTime;
+	private float curTime, timing;
 	public bool isStart;
+
+	private void Start () {
+		timing = timeToWait;
+	}
 
 	private void Update () {
 		curTime += Time.deltaTime;
@@ -27,6 +31,7 @@ public class PlayerMoving : MonoBehaviour {
 				objectiveCenter.localScale = new Vector3 (objectiveCenter.localScale.x, 0f, 
 					objectiveCenter.localScale.z);
 				objectiveCenter.gameObject.SetActive (false);
+				timeToWait = timing;
 
 				//curTime = 0f;
 

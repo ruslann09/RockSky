@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Jupiter/JupiterFarm.unity
     guid: bfff1af732ef441479f1bd95a85bd772
   - enabled: 1
-    path: Assets/Scenes/Mars/MarsFarm.unity
+    path: Assets/Scenes/Mercury/Mars/MarsFarm.unity
     guid: 6276a2d9df7b65143824e89fe46edfe3
   - enabled: 1
     path: Assets/Scenes/GravyGunOnAsteroids.unity
@@ -35,12 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mercury/MercuryFarm.unity
     guid: 2044d1ea02dbb0148a7a642e5fe4befa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Weapoons.unity
     guid: b7780bba1f9dce4419f8bed21783adc8
   - enabled: 1
     path: Assets/Scenes/Warehouse.unity
     guid: 0e9a1c47931fac844a079d8346092535
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/End.unity
     guid: e03bc59a4a38eed4c8bf3ccd6f665394

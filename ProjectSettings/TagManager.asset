@@ -20,6 +20,7 @@ TagManager:
   - SpaceScene_Planet
   - SpaceScene_PlanetRings
   - PlayerMoving
+  - SideBar
   layers:
   - Default
   - TransparentFX

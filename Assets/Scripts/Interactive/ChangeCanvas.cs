@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ChangeCanvas : MonoBehaviour {
-	public void ChangeMonitor (GameObject willBeOpening) {
-		transform.gameObject.SetActive (false);
+	public GameObject isOpening, willBeOpening;
+
+	public void ChangeMonitor () {
+		isOpening.SetActive (false);
 		willBeOpening.SetActive (true);
 	}
 }
